@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+
+    <style>
+
+        body {
+            font-size: 18pt;
+        }
+
+        span {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <span><strong>Id:</strong></span><span id="id"></span><br>
+    <span><strong>Name:</strong></span><span id="name"></span><br>
+    <span><strong>Username:</strong></span><span id="username"></span><br>
+    <span><strong>Phone:</strong></span><span id="phone"></span><br>
+    <span><strong>Email:</strong></span><span id="email"></span><br>
+    <span><strong>Website:</strong></span><span id="website"></span><br>
+    <span><strong>Address:</strong></span><br>
+    <span><strong>Street:</strong></span><span id="street"></span>
+    <span><strong>Suite:</strong></span><span id="suite"></span><br>
+    <span><strong>City:</strong></span><span id="city"></span>
+    <span><strong>Zipcode:</strong></span><span id="zipcode"></span><br>
+    <span><strong>Geo:</strong></span<br>
+    <span><strong>Lat:</strong></span><span id="lat"></span>
+    <span><strong>Lng:</strong></span><span id="lng"></span><br>
+    <span><strong>Company:</strong></span><br>
+    <span><strong>Name:</strong></span><span id="cName"></span>
+    <span><strong>Catch Phrase:</strong></span><span id="catchPhrase"></span>
+    <span><strong>Bs:</strong></span><span id="bs"></span>
+
+
+    <script>
+
+        let data;
+        const params = new URLSearchParams(window.location.search);
+        const param = params.get('id');
+        const url = 'https://jsonplaceholder.typicode.com/users/' + param;
+
+        //funzione che recupera le info dall'API
+        async function getData(apiAddress) {
+            await fetch(apiAddress).then(response => response.json()).then((result) => {
+                data = result;
+            }).catch((err) => { alert("Si è verificato il seguente errore: " + err); });
+        }
+
+        function setData() {
+            let elem = document.getElementById('id');
+            elem.innerText = data.id;
+            elem = document.getElementById('name');
+            elem.innerText = data.name;
+            elem = document.getElementById('username');
+            elem.innerText = data.username;
+            elem = document.getElementById('phone');
+            elem.innerText = data.phone;
+            elem = document.getElementById('email');
+            elem.innerText = data.email;
+            elem = document.getElementById('website');
+            elem.innerText = data.website;
+            elem = document.getElementById('street');
+            elem.innerText = data.address.street;
+            elem = document.getElementById('suite');
+            elem.innerText = data.address.suite;
+            elem = document.getElementById('city');
+            elem.innerText = data.address.city;
+            elem = document.getElementById('zipcode');
+            elem.innerText = data.address.zipcode;
+            elem = document.getElementById('lat');
+            elem.innerText = data.address.geo.lat;
+            elem = document.getElementById('lng');
+            elem.innerText = data.address.geo.lng;
+            elem = document.getElementById('cName');
+            elem.innerText = data.company.name;
+            elem = document.getElementById('catchPhrase');
+            elem.innerText = data.company.catchPhrase;
+            elem = document.getElementById('bs');
+            elem.innerText = data.company.bs;
+        }
+
+        window.addEventListener('load', async () => {
+            await getData(url);
+            setData();     
+        })
+
+    </script>
+</body>
+
+</html>

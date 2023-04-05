@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>User Filter</title>
+</head>
+
+<body class="my-3">
+    <main>
+        <h1 class="text-center">User list</h1>
+        <div class="dropdown text-center my-4">
+            <input id="inputText" type="text" placeholder="write here" class="mx-3">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Choose one
+            </button>
+            <button id="nameListButton" type="button" class="btn btn-light mx-3">Name List</button>
+            <button id="addressListButton" type="button" class="btn btn-light mx-3">Address List</button>
+            <button id="sortButton" type="button" class="btn btn-light mx-3">Sort by Name<br>ASC</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Email</a></li>
+                <li><a class="dropdown-item" href="#">Username</a></li>
+                <li><a class="dropdown-item" href="#">Name</a></li>
+            </ul>
+        </div>
+        <div class="container text-center mt-5">
+            <div class="row">
+                
+            </div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
